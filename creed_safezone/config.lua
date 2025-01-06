@@ -7,3 +7,5 @@ Config.Safezones = {
 }
 
 Config.SafezoneSpeedLimit = 60 -- Speed limit in km/h for vehicles inside the safe zone
+
+Config.EnableBlips = true -- Can set to False which doesnt show green zone on map. True enables the zone on the map

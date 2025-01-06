@@ -111,12 +111,15 @@ local function disableCombatActions()
 end
 
 
+
 local function createSafezoneBlips()
-    for _, zone in ipairs(Config.Safezones) do
-        local blip = AddBlipForRadius(zone.coords.x, zone.coords.y, zone.coords.z, zone.radius)
-        SetBlipAlpha(blip, 75) 
-        SetBlipColour(blip, 2) 
-        table.insert(safezoneBlips, blip)
+    if Config.EnableBlips then
+        for _, zone in ipairs(Config.Safezones) do
+            local blip = AddBlipForRadius(zone.coords.x, zone.coords.y, zone.coords.z, zone.radius)
+            SetBlipAlpha(blip, 75) 
+            SetBlipColour(blip, 2) 
+            table.insert(safezoneBlips, blip)
+        end
     end
 end
 
@@ -161,12 +164,12 @@ CreateThread(function()
     end
 end)
 
-
 AddEventHandler('onResourceStop', function(resource)
     if resource == GetCurrentResourceName() then
         removeSafezoneBlips()
     end
 end)
+
 
 
 
